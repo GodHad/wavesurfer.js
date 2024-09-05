@@ -243,18 +243,28 @@ function updateSpeedDisplay() {
 }
 
 document.getElementById('speedUp').addEventListener('click', function() {
-    if (currentSpeed < 3.0) {
-        currentSpeed += 0.1;
-        wavesurfer.setPlaybackRate(currentSpeed);
-        updateSpeedDisplay();
+    if (document.getElementById("preprocess").files[0]) {
+
+        if (currentSpeed < 3.0) {
+            currentSpeed += 0.1;
+            wavesurfer.setPlaybackRate(currentSpeed);
+            updateSpeedDisplay();
+        }
+    } else {
+        window.alert('File is not selected.')
     }
 });
 
 document.getElementById('speedDown').addEventListener('click', function() {
-    if (currentSpeed > 0.5) {
-        currentSpeed -= 0.1;
-        wavesurfer.setPlaybackRate(currentSpeed);
-        updateSpeedDisplay();
+    if (document.getElementById("preprocess").files[0]) {
+
+        if (currentSpeed > 0.5) {
+            currentSpeed -= 0.1;
+            wavesurfer.setPlaybackRate(currentSpeed);
+            updateSpeedDisplay();
+        }
+    } else {
+        window.alert('File is not selected.')
     }
 });
 

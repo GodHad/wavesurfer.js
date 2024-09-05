@@ -11251,17 +11251,25 @@ function updateSpeedDisplay() {
   document.getElementById('currentSpeed').textContent = "Speed: ".concat(currentSpeed.toFixed(1), "x");
 }
 document.getElementById('speedUp').addEventListener('click', function () {
-  if (currentSpeed < 3.0) {
-    currentSpeed += 0.1;
-    wavesurfer.setPlaybackRate(currentSpeed);
-    updateSpeedDisplay();
+  if (document.getElementById("preprocess").files[0]) {
+    if (currentSpeed < 3.0) {
+      currentSpeed += 0.1;
+      wavesurfer.setPlaybackRate(currentSpeed);
+      updateSpeedDisplay();
+    }
+  } else {
+    window.alert('File is not selected.');
   }
 });
 document.getElementById('speedDown').addEventListener('click', function () {
-  if (currentSpeed > 0.5) {
-    currentSpeed -= 0.1;
-    wavesurfer.setPlaybackRate(currentSpeed);
-    updateSpeedDisplay();
+  if (document.getElementById("preprocess").files[0]) {
+    if (currentSpeed > 0.5) {
+      currentSpeed -= 0.1;
+      wavesurfer.setPlaybackRate(currentSpeed);
+      updateSpeedDisplay();
+    }
+  } else {
+    window.alert('File is not selected.');
   }
 });
 var myDropzone = new _dropzone.default("form#my-awesome-dropzone", {
@@ -11329,7 +11337,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55469" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "5163" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
